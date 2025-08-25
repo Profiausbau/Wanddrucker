@@ -5,12 +5,24 @@
   <title>Impressum – Profiausbau Aachen GmbH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 40px 20px; line-height: 1.6; }
-    h1 { color: #005b8a; }
+    body { font-family: sans-serif; max-width: 800px; margin: auto; line-height: 1.6; padding-top: 80px; }
+    h1 { color: #005b8a; text-align:center; }
     a { color: #005b8a; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation (automatisch von nav.html geladen) -->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <!-- Inhalt -->
   <h1>Impressum</h1>
 
   <p><strong>Profiausbau Aachen GmbH</strong><br>
@@ -25,4 +37,18 @@
   Telefon: +49 (0)241 123456<br>
   E-Mail: <a href="mailto:info@profiausbau.com">info@profiausbau.com</a></p>
 
-  <p><strong>R
+  <p><strong>Registereintrag:</strong><br>
+  Handelsregister: Amtsgericht Aachen<br>
+  HRB 12345</p>
+
+  <p><strong>Umsatzsteuer-ID:</strong><br>
+  DE123456789</p>
+
+  <p><strong>Haftungsausschluss:</strong><br>
+  Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. 
+  Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+  <p><a href="index.html">← Zurück zur Startseite</a></p>
+
+</body>
+</html>
