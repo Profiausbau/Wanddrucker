@@ -11,7 +11,7 @@
       height: 100%;
       font-family: sans-serif;
       line-height: 1.6;
-      padding-top: 60px; /* Platz für fixiertes Menü */
+      padding-top: 80px; /* Platz für fixiertes Menü */
     }
 
     section {
@@ -28,8 +28,13 @@
 
     /* Hero */
     .hero {
+      min-height: 100vh;
       background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
       color: white; text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 0 20px;
     }
     .hero h1 { font-size: 3em; margin-bottom: 20px; }
@@ -97,23 +102,33 @@
     </div>
   </section>
 
- <!-- Drucker -->
-<section id="drucker">
-  <h2>Unser Wanddrucker</h2>
-  <p>Details zum Wanddrucker, Technik, Vorteile, Anwendungsgebiete...</p>
-</section>
+  <!-- Drucker -->
+  <section id="drucker" aria-label="Unser Wanddrucker">
+    <h2>Unser Wanddrucker</h2>
+    <p>Details zum Wanddrucker, Technik, Vorteile, Anwendungsgebiete...</p>
+  </section>
 
-<!-- Marketing -->
-<section id="marketing">
-  <h2>Marketing mit Wanddruck</h2>
-  <p>Wie Firmen den Wanddruck für Werbung, Branding und CI nutzen können...</p>
-</section>
+  <!-- Marketing -->
+  <section id="marketing" aria-label="Marketing mit Wanddruck">
+    <h2>Marketing mit Wanddruck</h2>
+    <p>Wie Firmen den Wanddruck für Werbung, Branding und CI nutzen können...</p>
+  </section>
 
-<!-- Schulung -->
-<section id="schulung">
-  <h2>Schulung & Support</h2>
-  <p>Wir bieten Einweisungen, Schulungen und Support für die Bedienung des Wanddruckers...</p>
-</section>
+  <!-- Schulung -->
+  <section id="schulung" aria-label="Schulung & Support">
+    <h2>Schulung & Support</h2>
+    <p>Wir bieten Einweisungen, Schulungen und Support für die Bedienung des Wanddruckers...</p>
+  </section>
+
+  <!-- Galerie -->
+  <section id="galerie">
+    <h2>Beispiele unserer Arbeiten</h2>
+    <div class="grid">
+      <img src="https://picsum.photos/400/300?random=3" alt="Beispiel 1">
+      <img src="https://picsum.photos/400/300?random=4" alt="Beispiel 2">
+      <img src="https://picsum.photos/400/300?random=5" alt="Beispiel 3">
+    </div>
+  </section>
 
   <!-- Video -->
   <section id="video">
