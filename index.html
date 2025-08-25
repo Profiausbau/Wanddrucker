@@ -9,68 +9,98 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: sans-serif;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
       padding-top: 60px; /* Platz für fixiertes Menü */
+      color: #333;
     }
 
-.hero {
-  min-height: 100vh;
-  width: 100%;           /* volle Breite */
-  max-width: none;       /* Begrenzung entfernen */
-  margin: 0;             /* kein zentrierter Block */
-  background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    h1 { font-size: 3em; color: #fff; }
+    h2 { font-size: 2em; color: #005b8a; }
+    h3 { font-size: 1.4em; color: #222; }
 
-
-    h1, h2 { text-align: center; }
+    section {
+      scroll-margin-top: 80px; /* verhindert Überschneiden mit Navbar */
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
     /* Hero */
     .hero {
       min-height: 100vh;
+      width: 100%;
       background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
-      color: white; text-align: center;
+      color: white;
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 0 20px;
     }
-    .hero h1 { font-size: 3em; margin-bottom: 20px; }
-
+    .hero p { font-size: 1.3em; max-width: 700px; margin: 0 auto 20px; }
     .cta a {
       background: #005b8a; color: white;
-      padding: 14px 24px; text-decoration: none;
+      padding: 14px 28px; text-decoration: none;
       border-radius: 6px; font-size: 1.2em;
+      transition: background 0.3s;
+    }
+    .cta a:hover { background: #00416a; }
+
+    /* Drucker, Marketing, Schulung */
+    .content-section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .alt-bg { background: #f9f9f9; }
+
+    .content-section p {
+      margin-bottom: 18px;
+      font-size: 1.1em;
+    }
+    .content-section ul {
+      margin: 15px 0 20px 30px;
     }
 
     /* Galerie */
-    .grid {
+    #galerie .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 20px;
-      width: 100%;
+      margin-top: 30px;
     }
-    .grid img { width: 100%; border-radius: 8px; }
+    .grid img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .grid img:hover { transform: scale(1.05); }
 
     /* YouTube Placeholder */
     .youtube-placeholder {
       width:100%; height:400px; background:#000; color:#fff;
       display:flex; align-items:center; justify-content:center;
-      border-radius:8px; cursor:pointer;
+      border-radius:8px; cursor:pointer; font-size: 1.1em;
     }
+
+    /* Kontakt */
+    #kontakt p { font-size: 1.2em; margin-bottom: 20px; }
 
     footer {
       text-align: center; padding: 30px; background: #f0f0f0;
+      margin-top: 40px;
     }
-    footer a { color: #005b8a; margin: 0 10px; }
+    footer a { color: #005b8a; margin: 0 10px; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     /* Cookie Banner */
     #cookie-banner {
@@ -79,9 +109,10 @@
       font-size: 0.9em; z-index:2000;
     }
     #cookie-banner button {
-      margin: 5px; padding: 5px 10px;
+      margin: 5px; padding: 8px 14px;
       border: none; border-radius: 4px;
       color: #fff; cursor:pointer;
+      font-size: 0.95em;
     }
     #cookie-banner .necessary { background:#005b8a; }
     #cookie-banner .youtube { background:#00a000; }
@@ -121,120 +152,51 @@
   </section>
 
   <!-- Drucker -->
-  <section id="drucker" aria-label="Unser Wanddrucker">
-<section class="wanddruck">
-  <h2>Wanddruck in höchster Qualität – nachhaltig, modern und einzigartig</h2>
-  
-  <p>
-    Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – 
-    großflächig, detailreich und in brillanten Farben. Ob Fotos, Zeichnungen, Gemälde, 
-    Logos oder kreative Designs: Ihre Wand wird zum Blickfang und erhält eine persönliche 
-    Note, die Räume unverwechselbar macht.
-  </p>
-
-  <p>
-    Bei der Herstellung legen wir größten Wert auf Qualität und Nachhaltigkeit. 
-    Verwendet werden ausschließlich <strong>hochwertige Produkte „Made in Germany“</strong>, 
-    die zudem <strong>EU-zertifiziert</strong> sind. Auf den Einsatz von Lösungsmitteln oder 
-    Verdünnern wird vollständig verzichtet. Stattdessen kommt eine 
-    <strong>vegane, ISO- und EU-zertifizierte Tinte</strong> zum Einsatz, die nicht nur 
-    umweltfreundlich ist, sondern auch gesundheitlich unbedenklich – ideal für private 
-    Wohnräume, öffentliche Einrichtungen, Arztpraxen, Schulen oder Unternehmen.
-  </p>
-
-  <p>
-    Dank modernster Technologie sind die Ergebnisse gestochen scharf, farbintensiv und 
-    langlebig. Selbst komplexe Motive können präzise aufgetragen werden – und das direkt 
-    auf nahezu jede glatte Wandfläche. So entstehen individuelle Wandgestaltungen, die 
-    modernes Design mit ökologischer Verantwortung verbinden.
-  </p>
-</section>
-
+  <section id="drucker">
+    <div class="content-section">
+      <h2>Wanddruck in höchster Qualität – nachhaltig, modern und einzigartig</h2>
+      <p>Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – großflächig, detailreich und in brillanten Farben. Ob Fotos, Zeichnungen, Gemälde, Logos oder kreative Designs: Ihre Wand wird zum Blickfang.</p>
+      <p>Verwendet werden ausschließlich <strong>hochwertige Produkte „Made in Germany“</strong>, die <strong>EU-zertifiziert</strong> sind. Unsere <strong>vegane, ISO- und EU-zertifizierte Tinte</strong> ist umweltfreundlich und gesundheitlich unbedenklich – perfekt für Wohnräume, Schulen oder Unternehmen.</p>
+      <p>Dank modernster Technologie entstehen gestochen scharfe, farbintensive und langlebige Ergebnisse auf nahezu jeder glatten Wandfläche.</p>
+    </div>
   </section>
 
   <!-- Marketing -->
-  <section id="marketing" aria-label="Marketing mit Wanddruck">
-<section class="wanddruck-marketing" style="padding:40px; background:#f9f9f9; font-family:Arial, sans-serif; line-height:1.6;">
-  <div style="max-width:900px; margin:0 auto;">
-    <h2 style="font-size:28px; color:#222; margin-bottom:20px;">Marketing mit Wanddruck – Ihre Botschaft direkt auf der Wand</h2>
-    
-    <p style="margin-bottom:20px;">
-      Verwandeln Sie kahle Flächen in starke Werbeträger: Mit modernster 
-      <strong>Wanddruck-Technologie</strong> bringen wir Ihre Marketing-Botschaften 
-      direkt und gestochen scharf auf jede Wand. Ob <strong>Firmenlogo, 
-      Werbebotschaft, Slogan oder großflächiges Branding</strong> – Ihre Idee 
-      wird zum echten Blickfang.
-    </p>
-    
-    <p style="margin-bottom:20px;">
-      Der Einsatz ist vielseitig: in <strong>Showrooms, Verkaufsräumen, 
-      Messeständen, Büroflächen oder Restaurants</strong> – überall dort, wo 
-      Sie mit Kreativität und Individualität beeindrucken möchten.
-    </p>
-
-    <p style="margin-bottom:20px;">
-      Dabei setzen wir ausschließlich auf <strong>hochwertige Produkte 
-      „Made in Germany“</strong>, die <strong>ISO- und EU-zertifiziert</strong> 
-      sind. Unsere Tinte ist <strong>vegan, lösungsmittelfrei und nachhaltig</strong> – 
-      perfekt geeignet auch für Innenräume mit Publikumsverkehr.
-    </p>
-    
-    <ul style="margin:20px 0; padding-left:20px;">
-      <li>Großflächige Logos und Markenbotschaften</li>
-      <li>Individuelles Interior Branding für Unternehmen</li>
-      <li>Eyecatcher auf Messen und Events</li>
-      <li>Werbewände mit langlebiger Farbbrillanz</li>
-    </ul>
-    
-    <p style="margin-top:20px; font-weight:bold; color:#444;">
-      Machen Sie Ihre Marke unübersehbar – mit innovativem Wanddruck, der begeistert und bleibt.
-    </p>
-  </div>
-</section>
-
+  <section id="marketing" class="alt-bg">
+    <div class="content-section">
+      <h2>Marketing mit Wanddruck – Ihre Botschaft direkt auf der Wand</h2>
+      <p>Verwandeln Sie kahle Flächen in starke Werbeträger: Mit <strong>Wanddruck-Technologie</strong> bringen wir Ihre Marketing-Botschaften direkt und gestochen scharf auf jede Wand. Firmenlogo, Werbebotschaft oder Branding – alles wird zum Blickfang.</p>
+      <p>Einsatzorte: <strong>Showrooms, Verkaufsräume, Messestände, Büros oder Restaurants</strong>.</p>
+      <p>Wir nutzen ausschließlich nachhaltige Produkte „Made in Germany“, ISO- und EU-zertifiziert – vegan, lösungsmittelfrei und langlebig.</p>
+      <ul>
+        <li>Großflächige Logos und Markenbotschaften</li>
+        <li>Interior Branding für Unternehmen</li>
+        <li>Eyecatcher auf Messen und Events</li>
+        <li>Werbewände mit brillanter Farbqualität</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Schulung -->
-  <section id="schulung" aria-label="Schulung & Support">
-<section class="wanddruck-schulung" style="padding:40px; background:#ffffff; font-family:Arial, sans-serif; line-height:1.6;">
-  <div style="max-width:900px; margin:0 auto;">
-    <h2 style="font-size:28px; color:#222; margin-bottom:20px;">Wanddruck-Schulung – lernen vom Profi</h2>
-    
-    <p style="margin-bottom:20px;">
-      Sie möchten die innovative <strong>Wanddruck-Technologie</strong> selbst erlernen und erfolgreich einsetzen? 
-      In unserer praxisnahen Schulung vermitteln wir Ihnen das nötige Know-how – kompakt, verständlich und direkt am Gerät.
-    </p>
-    
-    <h3 style="font-size:20px; color:#333; margin:20px 0 10px;">Inhalte der Schulung:</h3>
-    <ul style="margin:0 0 20px 20px; padding:0;">
-      <li>Grundlagen und Funktionsweise des Wanddrucks</li>
-      <li>Schritt-für-Schritt Bedienung des Wanddruckers</li>
-      <li>Vorbereitung verschiedener Untergründe</li>
-      <li>Druckoptimierung für unterschiedliche Motive</li>
-      <li>Pflege, Wartung und Fehlervermeidung</li>
-      <li>Marketing-Tipps und Kundenansprache</li>
-    </ul>
-
-    <p style="margin-bottom:20px;">
-      Unsere Schulungen richten sich an <strong>Handwerksbetriebe, Maler, Innenausbauer, Architekten 
-      und kreative Gestalter</strong>, die Wanddruck als innovative Dienstleistung in ihr Portfolio aufnehmen möchten.
-    </p>
-
-    <p style="margin-bottom:20px;">
-      Alle Teilnehmer erhalten nach erfolgreichem Abschluss ein <strong>Zertifikat</strong>, das die erlernten 
-      Kenntnisse bestätigt und Ihre Qualifikation im Bereich Wanddruck dokumentiert.
-    </p>
-
-    <p style="font-weight:bold; color:#444;">
-      Starten Sie jetzt durch – und werden Sie Teil der Wanddruck-Revolution!
-    </p>
-  </div>
-</section>
-
+  <section id="schulung">
+    <div class="content-section">
+      <h2>Wanddruck-Schulung – lernen vom Profi</h2>
+      <p>Sie möchten Wanddruck-Technologie selbst erlernen und einsetzen? Unsere praxisnahen Schulungen vermitteln Ihnen das Know-how – kompakt, verständlich und direkt am Gerät.</p>
+      <h3>Inhalte der Schulung:</h3>
+      <ul>
+        <li>Grundlagen und Funktionsweise</li>
+        <li>Bedienung des Wanddruckers</li>
+        <li>Vorbereitung unterschiedlicher Untergründe</li>
+        <li>Druckoptimierung für verschiedene Motive</li>
+        <li>Pflege, Wartung und Fehlervermeidung</li>
+        <li>Marketing-Tipps und Kundenansprache</li>
+      </ul>
+      <p>Nach Abschluss erhalten alle Teilnehmer ein <strong>Zertifikat</strong>, das Ihre Qualifikation dokumentiert.</p>
+    </div>
   </section>
 
   <!-- Galerie -->
-  <section id="galerie">
+  <section id="galerie" class="alt-bg">
     <h2>Beispiele unserer Arbeiten</h2>
     <div class="grid">
       <img src="images/IMG-20250825-WA0001.jpg" alt="Wanddruck Beispiel 1">
@@ -253,11 +215,9 @@
   </section>
 
   <!-- Kontakt -->
-  <section id="kontakt">
+  <section id="kontakt" class="alt-bg">
     <h2>Interesse geweckt?</h2>
-    <p style="text-align:center;">
-      Schreiben Sie uns und wir erstellen ein individuelles Angebot.
-    </p>
+    <p style="text-align:center;">Schreiben Sie uns – wir erstellen ein individuelles Angebot.</p>
     <div class="cta" style="text-align:center;">
       <a href="mailto:info@profiausbau.com?subject=Anfrage%20Wanddrucker">Jetzt Kontakt aufnehmen</a>
     </div>
