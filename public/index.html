@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Wanddrucker – Direktdruck auf Wände</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { margin: 0; font-family: sans-serif; line-height: 1.6; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: #005b8a; padding: 10px;
+      z-index: 1000;
+    }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
+    nav li { margin: 0 15px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+    h1, h2 { text-align: center; }
+    .hero {
+      background: url('https://picsum.photos/1200/600?random=1') center/cover no-repeat;
+      color: white; text-align: center; padding: 150px 20px;
+    }
+    .hero h1 { font-size: 3em; margin-bottom: 20px; }
+    .cta a {
+      background: #005b8a; color: white; padding: 14px 24px;
+      text-decoration: none; border-radius: 6px; font-size: 1.2em;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
+    .grid img { width: 100%; border-radius: 8px; }
+    iframe { width: 100%; height: 400px; border: none; border-radius: 8px; }
+    footer { text-align: center; padding: 30px; background: #f0f0f0; }
+    footer a { color: #005b8a; margin: 0 10px; }
+    
+    /* Cookie Banner */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #333; color: #fff; padding: 15px; text-align: center;
+      font-size: 0.9em;
+    }
+    #cookie-banner button {
+      margin-left: 15px; padding: 5px 10px;
+      background: #005b8a; color: #fff; border: none; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#hero">Start</a></li>
+      <li><a href="#ueber">Über uns</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>🖼 Wanddrucker</h1>
+    <p>Bilder & Designs direkt auf die Wand – modern, individuell, einzigartig.</p>
+    <div class="cta"><a href="#kontakt">Jetzt Beratung anfragen</a></div>
+  </section>
+
+  <!-- Über uns -->
+  <section id="ueber">
+    <h2>Was ist der Wanddrucker?</h2>
+    <p>
+      Unser innovativer Wanddrucker bringt Fotos, Grafiken und Logos direkt auf jede Wand –
+      ohne Folien, Tapete oder zusätzliche Materialien.
+    </p>
+    <img src="https://picsum.photos/800/400?random=2" alt="Wanddruck-Beispiel" style="width:100%;border-radius:8px;">
+  </section>
+
+  <!-- Galerie -->
+  <section id="galerie">
+    <h2>Beispiele unserer Arbeiten</h2>
+    <div class="grid">
+      <img src="https://picsum.photos/400/300?random=3" alt="Beispiel 1">
+      <img src="https://picsum.photos/400/300?random=4" alt="Beispiel 2">
+      <img src="https://picsum.photos/400/300?random=5" alt="Beispiel 3">
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section id="video">
+    <h2>So funktioniert der Wanddrucker</h2>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <h2>Interesse geweckt?</h2>
+    <p style="text-align:center;">
+      Schreiben Sie uns und wir erstellen ein individuelles Angebot.
+    </p>
+    <div class="cta" style="text-align:center;">
+      <a href="mailto:info@profiausbau.com?subject=Anfrage%20Wanddrucker">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Profiausbau Aachen GmbH – Wanddrucker Projekt <br>
+    <a href="impressum.html">Impressum</a> | 
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner">
+    Diese Website verwendet Cookies, um die Funktionalität sicherzustellen. 
+    <button onclick="document.getElementById('cookie-banner').style.display='none'">OK</button>
+    <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin-left:10px;">Mehr erfahren</a>
+  </div>
+
+</body>
+</html>
