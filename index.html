@@ -304,15 +304,43 @@
 
 
 
-  <!-- Galerie -->
-  <section id="galerie" class="alt-bg">
-    <h2>Beispiele unserer Arbeiten</h2>
-    <div class="grid">
-      <img src="images/IMG-20250825-WA0001.jpg" alt="Wanddruck Beispiel 1">
-      <img src="images/IMG-20250825-WA0002.jpg" alt="Wanddruck Beispiel 2">
-      <img src="images/IMG-20250825-WA0003.jpg" alt="Wanddruck Beispiel 3">
-    </div>
-  </section>
+<!-- Galerie -->
+  <section id="galerie">
+  <h2>Beispiele unserer Arbeiten</h2>
+  <div class="masonry">
+    <img src="images/IMG-20250825-WA0001.jpg" alt="Beispiel 1">
+    <img src="images/IMG-20250825-WA0002.jpg" alt="Beispiel 2">
+    <img src="images/IMG-20250825-WA0003.jpg" alt="Beispiel 3">
+    <img src="images/IMG-20250825-WA0004.jpg" alt="Beispiel 4">
+    <img src="images/IMG-20250825-WA0005.jpg" alt="Beispiel 5">
+  </div>
+</section>
+
+<style>
+.masonry {
+  column-count: 3;
+  column-gap: 15px;
+}
+.masonry img {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: block;
+  break-inside: avoid;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+.masonry img:hover {
+  transform: scale(1.03);
+}
+@media (max-width: 768px) {
+  .masonry { column-count: 2; }
+}
+@media (max-width: 500px) {
+  .masonry { column-count: 1; }
+}
+</style>
+
 
   <!-- Video -->
   <section id="video">
