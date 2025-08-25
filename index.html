@@ -34,7 +34,7 @@
     /* Hero mit Video */
     .hero {
       position: relative;
-      min-height: 100vh;
+      height: 100vh;
       width: 100%;
       margin: 0;
       overflow: hidden;
@@ -46,14 +46,20 @@
     }
     .hero video {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 50%; left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
       object-fit: cover;
       z-index: -1;
     }
     .hero-content {
       max-width: 800px;
       padding: 20px;
+      background: rgba(0,0,0,0.4); /* Text lesbarer */
+      border-radius: 8px;
     }
     .hero p {
       font-size: clamp(1em, 2.5vw, 1.3em);
@@ -99,9 +105,6 @@
       display:flex; align-items:center; justify-content:center;
       border-radius:8px; cursor:pointer; font-size: 1.1em;
     }
-
-    /* Kontakt */
-    #kontakt p { font-size: 1.2em; margin-bottom: 20px; }
 
     footer {
       text-align: center; padding: 30px; background: #f0f0f0;
@@ -161,22 +164,31 @@
   <!-- Drucker -->
   <section id="drucker">
     <div class="content-section">
-      <h2>Wanddruck in höchster Qualität</h2>
-      <p>Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – detailreich und farbintensiv.</p>
-      <p>Wir nutzen ausschließlich <strong>vegane, zertifizierte Tinten</strong> ohne Lösungsmittel – nachhaltig und gesundheitlich unbedenklich.</p>
-      <p>Perfekt für private Wohnräume, öffentliche Einrichtungen, Arztpraxen, Schulen oder Unternehmen.</p>
+      <h2>Wanddruck in höchster Qualität – nachhaltig, modern und einzigartig</h2>
+      <p>Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – 
+      großflächig, detailreich und in brillanten Farben. Ob Fotos, Zeichnungen, Gemälde, 
+      Logos oder kreative Designs: Ihre Wand wird zum Blickfang.</p>
+      <p>Wir setzen ausschließlich auf <strong>hochwertige Produkte „Made in Germany“</strong>, 
+      die <strong>EU-zertifiziert</strong> sind. Unsere <strong>vegane, ISO- und EU-zertifizierte Tinte</strong> 
+      ist frei von Lösungsmitteln und gesundheitlich unbedenklich – ideal für Wohnräume, Schulen, Praxen und Unternehmen.</p>
+      <p>Die Ergebnisse sind gestochen scharf, farbintensiv und langlebig – auch bei komplexen Motiven.</p>
     </div>
   </section>
 
   <!-- Marketing -->
   <section id="marketing" class="alt-bg">
     <div class="content-section">
-      <h2>Marketing mit Wanddruck</h2>
-      <p>Setzen Sie Ihr Logo oder Ihre Botschaft direkt an die Wand – in <strong>Showrooms, Verkaufsräumen, Messeständen</strong> und mehr.</p>
+      <h2>Marketing mit Wanddruck – Ihre Botschaft direkt auf der Wand</h2>
+      <p>Verwandeln Sie kahle Flächen in starke Werbeträger: Mit unserer <strong>Wanddruck-Technologie</strong> 
+      bringen wir Ihre Marketing-Botschaften direkt auf jede Wand. Ob <strong>Firmenlogo, Slogan oder Branding</strong> – 
+      Ihre Idee wird zum echten Blickfang.</p>
+      <p>Einsatzbereiche: <strong>Showrooms, Verkaufsräume, Messestände, Büros, Restaurants</strong> – überall dort, 
+      wo Sie beeindrucken möchten.</p>
       <ul>
         <li>Großflächige Logos und Markenbotschaften</li>
+        <li>Individuelles Interior Branding für Unternehmen</li>
         <li>Eyecatcher auf Messen und Events</li>
-        <li>Individuelles Interior Branding</li>
+        <li>Werbewände mit langlebiger Farbbrillanz</li>
       </ul>
     </div>
   </section>
@@ -184,15 +196,20 @@
   <!-- Schulung -->
   <section id="schulung">
     <div class="content-section">
-      <h2>Wanddruck-Schulung</h2>
-      <p>In unserer Schulung lernen Sie die Bedienung, Pflege und Vermarktung des Wanddruckers – praxisnah und direkt am Gerät.</p>
-      <p><strong>Inhalte:</strong></p>
+      <h2>Wanddruck-Schulung – lernen vom Profi</h2>
+      <p>Sie möchten die innovative <strong>Wanddruck-Technologie</strong> selbst erlernen? 
+      In unserer praxisnahen Schulung vermitteln wir Ihnen alles Notwendige – kompakt, verständlich und direkt am Gerät.</p>
+      <h3>Inhalte der Schulung:</h3>
       <ul>
-        <li>Funktionsweise & Grundlagen</li>
-        <li>Bedienung & Druckoptimierung</li>
-        <li>Marketing-Tipps</li>
+        <li>Grundlagen & Funktionsweise des Wanddrucks</li>
+        <li>Bedienung Schritt für Schritt</li>
+        <li>Vorbereitung verschiedener Untergründe</li>
+        <li>Druckoptimierung für unterschiedliche Motive</li>
+        <li>Pflege, Wartung und Fehlervermeidung</li>
+        <li>Marketing-Tipps und Kundenansprache</li>
       </ul>
-      <p>Nach Abschluss erhalten Sie ein offizielles Zertifikat.</p>
+      <p>Unsere Schulungen richten sich an <strong>Maler, Innenausbauer, Architekten und kreative Gestalter</strong>. 
+      Alle Teilnehmer erhalten ein <strong>Zertifikat</strong>.</p>
     </div>
   </section>
 
