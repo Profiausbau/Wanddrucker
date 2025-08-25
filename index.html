@@ -14,15 +14,21 @@
       padding-top: 20px; /* Platz für fixiertes Menü */
     }
 
-    section {
-      min-height: 100vh; /* jeder Abschnitt mindestens volle Höhe */
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* vertikal zentriert */
-    }
+.hero {
+  min-height: 100vh;
+  width: 100%;           /* volle Breite */
+  max-width: none;       /* Begrenzung entfernen */
+  margin: 0;             /* kein zentrierter Block */
+  background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
 
     h1, h2 { text-align: center; }
 
