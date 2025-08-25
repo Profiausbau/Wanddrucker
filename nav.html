@@ -1,13 +1,17 @@
 <nav>
-  <ul>
-    <li><a href="index.html#hero">Start</a></li>
-    <li><a href="index.html#ueber">Über uns</a></li>
-    <li><a href="index.html#galerie">Galerie</a></li>
-    <li><a href="index.html#video">Video</a></li>
-    <li><a href="index.html#kontakt">Kontakt</a></li>
-    <li><a href="impressum.html">Impressum</a></li>
-    <li><a href="datenschutz.html">Datenschutz</a></li>
-  </ul>
+  <div class="nav-container">
+    <div class="logo">Wanddrucker</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="index.html#hero">Start</a></li>
+      <li><a href="index.html#ueber">Über uns</a></li>
+      <li><a href="index.html#galerie">Galerie</a></li>
+      <li><a href="index.html#video">Video</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
 </nav>
 
 <style>
@@ -16,8 +20,28 @@
     background: #005b8a; padding: 10px;
     z-index: 1000;
   }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
-  nav li { margin: 0 15px; }
-  nav a { color: white; text-decoration: none; font-weight: bold; }
-  nav a:hover { text-decoration: underline; }
+  .nav-container {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: auto;
+  }
+  .logo { color: white; font-weight: bold; font-size: 1.2em; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; }
+  li { margin: 0 15px; }
+  a { color: white; text-decoration: none; font-weight: bold; }
+  a:hover { text-decoration: underline; }
+
+  /* Mobile */
+  .menu-toggle { display: none; font-size: 2em; color: white; cursor: pointer; }
+  @media (max-width: 768px) {
+    ul { display: none; flex-direction: column; background: #005b8a; width: 100%; }
+    ul.show { display: flex; }
+    .menu-toggle { display: block; }
+    li { margin: 15px 0; text-align: center; }
+  }
 </style>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+</script>
