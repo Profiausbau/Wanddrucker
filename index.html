@@ -5,17 +5,7 @@
   <title>Wanddrucker – Direktdruck auf Wände</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { margin: 0; font-family: sans-serif; line-height: 1.6; }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: #005b8a; padding: 10px;
-      z-index: 1000;
-    }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
-    nav li { margin: 0 15px; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-
+    body { margin: 0; font-family: sans-serif; line-height: 1.6; padding-top:80px; }
     section { padding: 80px 20px; max-width: 1000px; margin: auto; }
     h1, h2 { text-align: center; }
     .hero {
@@ -54,18 +44,15 @@
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#hero">Start</a></li>
-      <li><a href="#ueber">Über uns</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
-      <li><a href="datenschutz.html">Datenschutz</a></li>
-    </ul>
-  </nav>
+  <!-- Navigation (automatisch laden aus nav.html) -->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Hero -->
   <section class="hero" id="hero">
@@ -137,7 +124,6 @@
       localStorage.setItem('cookieConsent', choice);
 
       if (choice === 'youtube') {
-        // Lade alle YouTube-Videos nach Zustimmung
         document.querySelectorAll('.youtube-placeholder').forEach(el => {
           let iframe = document.createElement('iframe');
           iframe.src = el.dataset.src;
@@ -149,8 +135,6 @@
         });
       }
     }
-
-    // Banner nur zeigen, wenn noch keine Entscheidung getroffen
     window.onload = function() {
       let consent = localStorage.getItem('cookieConsent');
       if (consent) {
