@@ -42,38 +42,42 @@
     .content-section p { margin-bottom: 18px; font-size: 1.1em; }
     .content-section ul { margin: 15px 0 20px 30px; }
 
-    /* Hero mit Fullscreen Video */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 85vh; /* volle Bildschirmhöhe */
-      margin-top: 60px; /* direkt unter Navbar */
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-    }
-    .hero video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 85vh;
-      max-height: 80vh; /* Video nie höher als 80% der Bildschirmhöhe */
-      object-fit: cover;
-      z-index: -1;
-    }
-    .hero-content {
-      max-width: 800px;
-      padding: 20px;
-      background: rgba(0,0,0,0.4); /* Text besser lesbar */
-      border-radius: 8px;
-    }
-    .hero p {
-      font-size: clamp(1em, 2.5vw, 1.3em);
-      margin-bottom: 20px;
-    }
+   /* Hero mit Fullscreen Video */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 85vh; /* etwas kleiner als volle Höhe */
+  margin-top: 60px; /* Platz für Navbar */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero video {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%; /* Video füllt exakt den Hero */
+  object-fit: cover; /* ohne Verzerrung */
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 8px;
+}
+
+.hero p {
+  font-size: clamp(1em, 2.5vw, 1.3em);
+  margin-bottom: 20px;
+}
+
     .cta a {
       background: #005b8a; color: white;
       padding: 14px 28px; text-decoration: none;
