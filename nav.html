@@ -4,11 +4,15 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
       <li><a href="index.html#hero">Start</a></li>
-      <li><a href="index.html#ueber">Drucker</a></li>
-      <li><a href="index.html#galerie">Marketing</a></li>
-      <li><a href="index.html#galerie">Schulung</a></li>
+      <li><a href="index.html#drucker">Drucker</a></li>
+      <li><a href="index.html#marketing">Marketing</a></li>
+      <li><a href="index.html#schulung">Schulung</a></li>
+      <li><a href="index.html#galerie">Galerie</a></li>
       <li><a href="index.html#video">Video</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="wanddrucker.html">Wanddrucker</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
     </ul>
   </div>
 </nav>
@@ -18,7 +22,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     background: #005b8a;
-    padding: 10px;
+    padding: 10px 20px;
     z-index: 1000;
   }
   .nav-container {
@@ -31,12 +35,13 @@
   .logo {
     color: white;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.4em;
   }
   ul {
     list-style: none;
     margin: 0; padding: 0;
     display: flex;
+    transition: all 0.3s ease;
   }
   li { margin: 0 15px; }
   a {
@@ -52,6 +57,7 @@
     font-size: 2em;
     color: white;
     cursor: pointer;
+    padding: 5px 10px;
   }
   @media (max-width: 768px) {
     ul {
@@ -63,7 +69,7 @@
     }
     ul.show { display: flex; }
     .menu-toggle { display: block; }
-    li { margin: 10px 0; text-align: center; }
+    li { margin: 12px 0; text-align: center; }
   }
 </style>
 
@@ -71,4 +77,13 @@
   function toggleMenu() {
     document.getElementById("menu").classList.toggle("show");
   }
+
+  // Menü automatisch schließen, wenn Link geklickt wird (nur mobil)
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("show");
+      });
+    });
+  });
 </script>
