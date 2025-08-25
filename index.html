@@ -5,28 +5,62 @@
   <title>Wanddrucker – Direktdruck auf Wände</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { margin: 0; font-family: sans-serif; line-height: 1.6; padding-top:80px; }
-    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      line-height: 1.6;
+      padding-top: 60px; /* Platz für fixiertes Menü */
+    }
+
+    section {
+      min-height: 100vh; /* jeder Abschnitt mindestens volle Höhe */
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* vertikal zentriert */
+    }
+
     h1, h2 { text-align: center; }
+
+    /* Hero */
     .hero {
-      background: url('https://picsum.photos/1200/600?random=1') center/cover no-repeat;
-      color: white; text-align: center; padding: 150px 20px;
+      background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
+      color: white; text-align: center;
+      padding: 0 20px;
     }
     .hero h1 { font-size: 3em; margin-bottom: 20px; }
+
     .cta a {
-      background: #005b8a; color: white; padding: 14px 24px;
-      text-decoration: none; border-radius: 6px; font-size: 1.2em;
+      background: #005b8a; color: white;
+      padding: 14px 24px; text-decoration: none;
+      border-radius: 6px; font-size: 1.2em;
     }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
+
+    /* Galerie */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+      width: 100%;
+    }
     .grid img { width: 100%; border-radius: 8px; }
+
+    /* YouTube Placeholder */
     .youtube-placeholder {
       width:100%; height:400px; background:#000; color:#fff;
       display:flex; align-items:center; justify-content:center;
       border-radius:8px; cursor:pointer;
     }
-    footer { text-align: center; padding: 30px; background: #f0f0f0; }
+
+    footer {
+      text-align: center; padding: 30px; background: #f0f0f0;
+    }
     footer a { color: #005b8a; margin: 0 10px; }
-    
+
     /* Cookie Banner */
     #cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0;
@@ -44,11 +78,11 @@
 </head>
 <body>
 
-  <!-- Navigation (automatisch laden aus nav.html) -->
+  <!-- Navigation (aus nav.html laden) -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
-      .then(response => response.text())
+      .then(res => res.text())
       .then(data => {
         document.getElementById("nav-placeholder").innerHTML = data;
       });
@@ -56,9 +90,11 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <h1>🖼 Wanddrucker</h1>
-    <p>Bilder & Designs direkt auf die Wand – modern, individuell, einzigartig.</p>
-    <div class="cta"><a href="#kontakt">Jetzt Beratung anfragen</a></div>
+    <div>
+      <h1>🖼 Wanddrucker</h1>
+      <p>Bilder & Designs direkt auf die Wand – modern, individuell, einzigartig.</p>
+      <div class="cta"><a href="#kontakt">Jetzt Beratung anfragen</a></div>
+    </div>
   </section>
 
   <!-- Über uns -->
@@ -68,7 +104,7 @@
       Unser innovativer Wanddrucker bringt Fotos, Grafiken und Logos direkt auf jede Wand –
       ohne Folien, Tapete oder zusätzliche Materialien.
     </p>
-    <img src="https://picsum.photos/800/400?random=2" alt="Wanddruck-Beispiel" style="width:100%;border-radius:8px;">
+    <img src="https://picsum.photos/1200/600?random=2" alt="Wanddruck-Beispiel" style="width:100%;border-radius:8px;">
   </section>
 
   <!-- Galerie -->
