@@ -5,7 +5,7 @@
   <title>Wanddrucker – Direktdruck auf Wände</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { margin: 0; font-family: sans-serif; line-height: 1.6; }
+    body { margin: 0; font-family: sans-serif; line-height: 1.6; padding-top: 80px; }
     section { padding: 60px 20px; max-width: 1000px; margin: auto; }
     h1, h2 { text-align: center; }
     .hero {
@@ -24,6 +24,16 @@
   </style>
 </head>
 <body>
+
+  <!-- Navigation (wird automatisch von nav.html geladen) -->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Hero -->
   <section class="hero">
