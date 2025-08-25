@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-container">
     <div class="logo">Wanddrucker</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
       <li><a href="index.html#hero">Start</a></li>
       <li><a href="index.html#drucker">Drucker</a></li>
@@ -10,6 +10,9 @@
       <li><a href="index.html#galerie">Galerie</a></li>
       <li><a href="index.html#video">Video</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="wanddrucker.html">Wanddrucker</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
     </ul>
   </div>
 </nav>
@@ -54,6 +57,7 @@
     color: white;
     cursor: pointer;
     padding: 5px 10px;
+    user-select: none;
   }
   @media (max-width: 768px) {
     ul {
@@ -78,14 +82,26 @@
 
 <script>
   function toggleMenu() {
-    document.getElementById("menu").classList.toggle("show");
+    const menu = document.getElementById("menu");
+    const toggle = document.getElementById("menu-toggle");
+    menu.classList.toggle("show");
+
+    // Icon wechseln
+    if (menu.classList.contains("show")) {
+      toggle.textContent = "✖";
+    } else {
+      toggle.textContent = "☰";
+    }
   }
 
   // Menü automatisch schließen, wenn Link geklickt wird
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("#menu a").forEach(link => {
       link.addEventListener("click", () => {
-        document.getElementById("menu").classList.remove("show");
+        const menu = document.getElementById("menu");
+        const toggle = document.getElementById("menu-toggle");
+        menu.classList.remove("show");
+        toggle.textContent = "☰";
       });
     });
   });
