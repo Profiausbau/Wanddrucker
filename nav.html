@@ -38,7 +38,6 @@
     list-style: none;
     margin: 0; padding: 0;
     display: flex;
-    transition: all 0.3s ease;
   }
   li { margin: 0 15px; }
   a {
@@ -58,13 +57,20 @@
   }
   @media (max-width: 768px) {
     ul {
-      display: none;
-      flex-direction: column;
+      position: absolute;
+      top: 60px; /* unter der Navbar */
+      left: 0;
+      right: 0;
       background: #005b8a;
-      width: 100%;
-      padding: 10px 0;
+      flex-direction: column;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease-out;
     }
-    ul.show { display: flex; }
+    ul.show {
+      max-height: 500px; /* groß genug für alle Links */
+      transition: max-height 0.4s ease-in;
+    }
     .menu-toggle { display: block; }
     li { margin: 12px 0; text-align: center; }
   }
