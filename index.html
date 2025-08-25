@@ -100,11 +100,13 @@
       transition: transform 0.3s;
     }
     .grid img:hover { transform: scale(1.05); }
+
+    
 /* Video Bereich */
 #video {
   background: #000;
   color: #fff;
-  padding: 60px 20px; /* gleich wie Content Sections */
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -116,28 +118,33 @@
 /* Wrapper für Content-Breite */
 #video .video-wrapper {
   max-width: 1000px;   /* gleiche Breite wie Content */
-  margin: 0 auto;      /* mittig */
+  margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Verhältnis (9/16 = 0.5625) */
+  height: 0;            /* Höhe wird durch padding erzeugt */
 }
 
-/* Placeholder & Iframe */
-#video .youtube-placeholder,
-#video iframe {
+/* Responsive Iframe/Placeholder */
+#video iframe,
+#video .youtube-placeholder {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
-  height: 60vh;         /* responsive Höhe */
-  background: #000;
+  height: 100%;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 8px;
 }
 
 #video .youtube-placeholder {
+  background: #000;
   color: #fff;
-  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-size: 1.1em;
+  cursor: pointer;
 }
 
 
