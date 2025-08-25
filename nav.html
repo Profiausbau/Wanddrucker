@@ -1,6 +1,10 @@
 <nav>
   <div class="nav-container">
-    <div class="logo">Wanddrucker</div>
+    <!-- Logo jetzt ein Link zur Startseite -->
+    <div class="logo">
+      <a href="index.html#hero">Wanddrucker</a>
+    </div>
+
     <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
       <li><a href="index.html#hero">Start</a></li>
@@ -19,20 +23,28 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     background: #005b8a;
-    padding: 10px 20px;
+    height: 60px; /* fixe Höhe */
+    padding: 0 20px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
   }
   .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
+    width: 100%;
     margin: auto;
   }
-  .logo {
+  .logo a {
     color: white;
     font-weight: bold;
     font-size: 1.4em;
+    text-decoration: none;
+  }
+  .logo a:hover {
+    text-decoration: underline;
   }
   ul {
     list-style: none;
@@ -59,7 +71,7 @@
   @media (max-width: 768px) {
     ul {
       position: absolute;
-      top: 60px; /* unter der Navbar */
+      top: 60px; /* direkt unter der Navbar */
       left: 0;
       right: 0;
       background: #005b8a;
@@ -74,6 +86,11 @@
     }
     .menu-toggle { display: block; }
     li { margin: 12px 0; text-align: center; }
+  }
+
+  /* Hero direkt unter der Navbar platzieren */
+  .hero {
+    margin-top: 60px; /* gleiche Höhe wie Navbar */
   }
 </style>
 
@@ -103,3 +120,4 @@
     });
   });
 </script>
+
