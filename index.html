@@ -89,7 +89,19 @@
     fetch("nav.html")
       .then(res => res.text())
       .then(data => {
-        document.getElementById("nav-placeholder").innerHTML = data;
+        const navContainer = document.getElementById("nav-placeholder");
+        navContainer.innerHTML = data;
+
+        // Alle Skripte aus nav.html nachträglich ausführen
+        navContainer.querySelectorAll("script").forEach(oldScript => {
+          const newScript = document.createElement("script");
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
       });
   </script>
 
