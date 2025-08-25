@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      line-height: 1.7;
+      line-height: 1.6;
       padding-top: 60px; /* Platz für fixiertes Menü */
       color: #333;
     }
@@ -20,31 +20,45 @@
       margin-bottom: 20px;
       font-weight: bold;
     }
-    h1 { font-size: 3em; color: #fff; }
-    h2 { font-size: 2em; color: #005b8a; }
-    h3 { font-size: 1.4em; color: #222; }
+    h1 { font-size: clamp(2em, 5vw, 3em); }
+    h2 { font-size: clamp(1.6em, 3.5vw, 2.2em); color: #005b8a; }
+    h3 { font-size: clamp(1.2em, 2.5vw, 1.6em); color: #222; }
 
     section {
-      scroll-margin-top: 80px; /* verhindert Überschneiden mit Navbar */
+      scroll-margin-top: 80px;
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
 
-    /* Hero */
+    /* Hero mit Video */
     .hero {
+      position: relative;
       min-height: 100vh;
       width: 100%;
-      background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;
-      color: white;
-      text-align: center;
+      margin: 0;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
+      color: #fff;
+      text-align: center;
     }
-    .hero p { font-size: 1.3em; max-width: 700px; margin: 0 auto 20px; }
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero-content {
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero p {
+      font-size: clamp(1em, 2.5vw, 1.3em);
+      margin-bottom: 20px;
+    }
     .cta a {
       background: #005b8a; color: white;
       padding: 14px 28px; text-decoration: none;
@@ -53,7 +67,7 @@
     }
     .cta a:hover { background: #00416a; }
 
-    /* Drucker, Marketing, Schulung */
+    /* Content Sections */
     .content-section {
       background: #fff;
       border-radius: 10px;
@@ -61,14 +75,8 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
     .alt-bg { background: #f9f9f9; }
-
-    .content-section p {
-      margin-bottom: 18px;
-      font-size: 1.1em;
-    }
-    .content-section ul {
-      margin: 15px 0 20px 30px;
-    }
+    .content-section p { margin-bottom: 18px; font-size: 1.1em; }
+    .content-section ul { margin: 15px 0 20px 30px; }
 
     /* Galerie */
     #galerie .grid {
@@ -85,7 +93,7 @@
     }
     .grid img:hover { transform: scale(1.05); }
 
-    /* YouTube Placeholder */
+    /* Video Placeholder */
     .youtube-placeholder {
       width:100%; height:400px; background:#000; color:#fff;
       display:flex; align-items:center; justify-content:center;
@@ -120,7 +128,7 @@
 </head>
 <body>
 
-  <!-- Navigation (aus nav.html laden) -->
+  <!-- Navigation laden -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
@@ -128,15 +136,10 @@
       .then(data => {
         const navContainer = document.getElementById("nav-placeholder");
         navContainer.innerHTML = data;
-
-        // Alle Skripte aus nav.html nachträglich ausführen
         navContainer.querySelectorAll("script").forEach(oldScript => {
           const newScript = document.createElement("script");
-          if (oldScript.src) {
-            newScript.src = oldScript.src;
-          } else {
-            newScript.textContent = oldScript.textContent;
-          }
+          if (oldScript.src) { newScript.src = oldScript.src; }
+          else { newScript.textContent = oldScript.textContent; }
           document.body.appendChild(newScript);
         });
       });
@@ -144,7 +147,11 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div>
+    <video autoplay muted loop playsinline>
+      <source src="videos/hero.mp4" type="video/mp4">
+      Dein Browser unterstützt kein HTML5-Video.
+    </video>
+    <div class="hero-content">
       <h1>Wanddrucker</h1>
       <p>Bilder & Designs direkt auf die Wand – modern, individuell, einzigartig.</p>
       <div class="cta"><a href="#kontakt">Jetzt Beratung anfragen</a></div>
@@ -154,25 +161,22 @@
   <!-- Drucker -->
   <section id="drucker">
     <div class="content-section">
-      <h2>Wanddruck in höchster Qualität – nachhaltig, modern und einzigartig</h2>
-      <p>Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – großflächig, detailreich und in brillanten Farben. Ob Fotos, Zeichnungen, Gemälde, Logos oder kreative Designs: Ihre Wand wird zum Blickfang.</p>
-      <p>Verwendet werden ausschließlich <strong>hochwertige Produkte „Made in Germany“</strong>, die <strong>EU-zertifiziert</strong> sind. Unsere <strong>vegane, ISO- und EU-zertifizierte Tinte</strong> ist umweltfreundlich und gesundheitlich unbedenklich – perfekt für Wohnräume, Schulen oder Unternehmen.</p>
-      <p>Dank modernster Technologie entstehen gestochen scharfe, farbintensive und langlebige Ergebnisse auf nahezu jeder glatten Wandfläche.</p>
+      <h2>Wanddruck in höchster Qualität</h2>
+      <p>Unser hochmoderner Wanddrucker bringt Ihre Wunschmotive direkt auf jede Wand – detailreich und farbintensiv.</p>
+      <p>Wir nutzen ausschließlich <strong>vegane, zertifizierte Tinten</strong> ohne Lösungsmittel – nachhaltig und gesundheitlich unbedenklich.</p>
+      <p>Perfekt für private Wohnräume, öffentliche Einrichtungen, Arztpraxen, Schulen oder Unternehmen.</p>
     </div>
   </section>
 
   <!-- Marketing -->
   <section id="marketing" class="alt-bg">
     <div class="content-section">
-      <h2>Marketing mit Wanddruck – Ihre Botschaft direkt auf der Wand</h2>
-      <p>Verwandeln Sie kahle Flächen in starke Werbeträger: Mit <strong>Wanddruck-Technologie</strong> bringen wir Ihre Marketing-Botschaften direkt und gestochen scharf auf jede Wand. Firmenlogo, Werbebotschaft oder Branding – alles wird zum Blickfang.</p>
-      <p>Einsatzorte: <strong>Showrooms, Verkaufsräume, Messestände, Büros oder Restaurants</strong>.</p>
-      <p>Wir nutzen ausschließlich nachhaltige Produkte „Made in Germany“, ISO- und EU-zertifiziert – vegan, lösungsmittelfrei und langlebig.</p>
+      <h2>Marketing mit Wanddruck</h2>
+      <p>Setzen Sie Ihr Logo oder Ihre Botschaft direkt an die Wand – in <strong>Showrooms, Verkaufsräumen, Messeständen</strong> und mehr.</p>
       <ul>
         <li>Großflächige Logos und Markenbotschaften</li>
-        <li>Interior Branding für Unternehmen</li>
         <li>Eyecatcher auf Messen und Events</li>
-        <li>Werbewände mit brillanter Farbqualität</li>
+        <li>Individuelles Interior Branding</li>
       </ul>
     </div>
   </section>
@@ -180,18 +184,15 @@
   <!-- Schulung -->
   <section id="schulung">
     <div class="content-section">
-      <h2>Wanddruck-Schulung – lernen vom Profi</h2>
-      <p>Sie möchten Wanddruck-Technologie selbst erlernen und einsetzen? Unsere praxisnahen Schulungen vermitteln Ihnen das Know-how – kompakt, verständlich und direkt am Gerät.</p>
-      <h3>Inhalte der Schulung:</h3>
+      <h2>Wanddruck-Schulung</h2>
+      <p>In unserer Schulung lernen Sie die Bedienung, Pflege und Vermarktung des Wanddruckers – praxisnah und direkt am Gerät.</p>
+      <p><strong>Inhalte:</strong></p>
       <ul>
-        <li>Grundlagen und Funktionsweise</li>
-        <li>Bedienung des Wanddruckers</li>
-        <li>Vorbereitung unterschiedlicher Untergründe</li>
-        <li>Druckoptimierung für verschiedene Motive</li>
-        <li>Pflege, Wartung und Fehlervermeidung</li>
-        <li>Marketing-Tipps und Kundenansprache</li>
+        <li>Funktionsweise & Grundlagen</li>
+        <li>Bedienung & Druckoptimierung</li>
+        <li>Marketing-Tipps</li>
       </ul>
-      <p>Nach Abschluss erhalten alle Teilnehmer ein <strong>Zertifikat</strong>, das Ihre Qualifikation dokumentiert.</p>
+      <p>Nach Abschluss erhalten Sie ein offizielles Zertifikat.</p>
     </div>
   </section>
 
@@ -244,13 +245,11 @@
     function acceptCookies(choice) {
       document.getElementById('cookie-banner').style.display = 'none';
       localStorage.setItem('cookieConsent', choice);
-
       if (choice === 'youtube') {
         document.querySelectorAll('.youtube-placeholder').forEach(el => {
           let iframe = document.createElement('iframe');
           iframe.src = el.dataset.src;
-          iframe.width = "100%";
-          iframe.height = "400";
+          iframe.width = "100%"; iframe.height = "400";
           iframe.style.borderRadius = "8px";
           iframe.setAttribute("allowfullscreen", "");
           el.replaceWith(iframe);
