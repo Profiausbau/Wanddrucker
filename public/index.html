@@ -117,6 +117,48 @@
     <button onclick="document.getElementById('cookie-banner').style.display='none'">OK</button>
     <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin-left:10px;">Mehr erfahren</a>
   </div>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#333;color:#fff;padding:15px;text-align:center;font-size:0.9em;z-index:2000;">
+  Diese Website verwendet nur technisch notwendige Cookies. 
+  Für eingebettete YouTube-Videos benötigen wir Ihre Zustimmung. 
+  <br><br>
+  <button onclick="acceptCookies('necessary')" style="margin:5px;padding:5px 10px;background:#005b8a;color:#fff;border:none;border-radius:4px;">
+    Nur notwendige Cookies
+  </button>
+  <button onclick="acceptCookies('youtube')" style="margin:5px;padding:5px 10px;background:#00a000;color:#fff;border:none;border-radius:4px;">
+    YouTube erlauben
+  </button>
+  <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin-left:10px;">Mehr erfahren</a>
+</div>
+
+<script>
+  function acceptCookies(choice) {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('cookieConsent', choice);
+
+    if (choice === 'youtube') {
+      // Lade alle YouTube-Videos nach Zustimmung
+      document.querySelectorAll('.youtube-placeholder').forEach(el => {
+        let iframe = document.createElement('iframe');
+        iframe.src = el.dataset.src;
+        iframe.width = "100%";
+        iframe.height = "400";
+        iframe.style.borderRadius = "8px";
+        iframe.setAttribute("allowfullscreen", "");
+        el.replaceWith(iframe);
+      });
+    }
+  }
+
+  // Banner beim Laden nur zeigen, wenn noch keine Entscheidung getroffen
+  window.onload = function() {
+    let consent = localStorage.getItem('cookieConsent');
+    if (consent) {
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (consent === 'youtube') acceptCookies('youtube');
+    }
+  }
+</script>
 
 </body>
 </html>
