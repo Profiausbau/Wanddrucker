@@ -46,7 +46,7 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh; /* volle Bildschirmhöhe */
+      height: auto; /* volle Bildschirmhöhe */
       margin-top: 60px; /* direkt unter Navbar */
       overflow: hidden;
       display: flex;
@@ -59,8 +59,9 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover; /* füllt Breite + Höhe ohne Verzerrung */
+      height: auto;
+      max-height: 80vh; /* Video nie höher als 80% der Bildschirmhöhe */
+      object-fit: cover;
       z-index: -1;
     }
     .hero-content {
